@@ -13,9 +13,9 @@ end
 
 #check if wpa_supplicant is running 
 #in case terminate the process
-set waps_pid ( sudo cat /var/run/wpa_supplicant.pid )
-if test -n "$waps_pid" 
-sudo kill -SIGTERM "$waps_pid" 
+set wpas_pid ( sudo cat /var/run/wpa_supplicant.pid )
+if test -n "$wpas_pid" 
+sudo kill -SIGTERM "$wpas_pid" 
 sudo rm -rf /var/run/wpa_supplicant.pid
 end
 
