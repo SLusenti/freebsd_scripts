@@ -11,6 +11,14 @@ touch ~/.config/wpa_key/db
 chmod 600 ~/.config/wpa_key/db
 end
 
+#check if wpa_supplicant is running 
+#in case terminate the process
+set waps_pid ( sudo cat /var/run/wpa_supplicant.pid )
+if test -n "$waps_pid" 
+sudo kill -SIGTERM "$waps_pid" 
+sudo rm -rf /var/run/wpa_supplicant.pid
+end
+
 #get the wlan device name
 set iwdev ( sudo sysctl net.wlan.devices | awk '{print $2}' )
 
